@@ -622,25 +622,25 @@ local function resolveid(image, flag)
 								end
 							end)
 							codename = string.sub(codename, 1, 24) .. tostring(fixes)
-							local fold = isfolder("./farzad Lib")
+							local fold = isfolder("./rice Lib")
 							if not fold then
-								makefolder("./farzad Lib")
+								makefolder("./rice Lib")
 							end
-							fold = isfolder("./farzad Lib/Themes")
+							fold = isfolder("./rice Lib/Themes")
 							if not fold then
-								makefolder("./farzad Lib/Themes")
+								makefolder("./rice Lib/Themes")
 							end
-							fold = isfolder("./farzad Lib/Themes/SynapseAssetsCache")
+							fold = isfolder("./rice Lib/Themes/SynapseAssetsCache")
 							if not fold then
-								makefolder("./farzad Lib Themes/SynapseAssetsCache")
+								makefolder("./rice Lib Themes/SynapseAssetsCache")
 							end
-							if not fold or not isfile("./farzad Lib/Themes/SynapseAssetsCache/" .. codename .. ".dat") then
+							if not fold or not isfile("./rice Lib/Themes/SynapseAssetsCache/" .. codename .. ".dat") then
 								local res = game:HttpGet(string.sub(image, 15))
 								if res ~= nil then
-									writefile("./farzad Lib/Themes/SynapseAssetsCache/" .. codename .. ".dat", res)
+									writefile("./rice Lib/Themes/SynapseAssetsCache/" .. codename .. ".dat", res)
 								end
 							end
-							return getsynasset(readfile("./farzad Lib/Themes/SynapseAssetsCache/" .. codename .. ".dat"))
+							return getsynasset(readfile("./rice Lib/Themes/SynapseAssetsCache/" .. codename .. ".dat"))
 						end)
 						if x and e ~= nil then
 							return e
@@ -1168,7 +1168,7 @@ function library:CreateWindow(options, ...)
 	if windowName and #windowName > 0 and library.WorkspaceName == "rice lib" then
 		library.WorkspaceName = convertfilename(windowName, "rice Lib")
 	end
-	local farzadLibrary = Instance_new("ScreenGui")
+	local riceLibrary = Instance_new("ScreenGui")
 	local main = Instance_new("Frame")
 	local mainBorder = Instance_new("Frame")
 	local tabSlider = Instance_new("Frame")
@@ -1185,13 +1185,13 @@ function library:CreateWindow(options, ...)
 	library.globals["__Window" .. options.Name] = {
 		submenuOpen = submenuOpen
 	}
-	farzadLibrary.Name = "     "
-	farzadLibrary.Parent = library.gui_parent
-	farzadLibrary.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-	farzadLibrary.DisplayOrder = 10
-	farzadLibrary.ResetOnSpawn = false
+	riceLibrary.Name = "     "
+	riceLibrary.Parent = library.gui_parent
+	riceLibrary.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	riceLibrary.DisplayOrder = 10
+	riceLibrary.ResetOnSpawn = false
 	main.Name = "main"
-	main.Parent = farzadLibrary
+	main.Parent = riceLibrary
 	main.AnchorPoint = Vector2.new(0.5, 0.5)
 	main.BackgroundColor3 = library.colors.background
 	colored[1 + #colored] = {main, "BackgroundColor3", "background"}
@@ -1344,7 +1344,7 @@ function library:CreateWindow(options, ...)
 	windowFunctions.LastTab = nil
 	function windowFunctions:CreateTab(options, ...)
 		options = (options and type(options) == "string" and resolvevararg("Tab", options, ...)) or options or {
-			Name = "farzad Style: Elite Hax"
+			Name = "rice Style: Elite Hax"
 		}
 		local image = options.Image
 		if image then
@@ -4084,14 +4084,14 @@ function library:CreateWindow(options, ...)
 					local realDropdownHolder = Instance_new("ScrollingFrame")
 					local realDropdownHolderList = Instance_new("UIListLayout")
 					local dropdownEnabled = false
-					if not isfolder("./farzad Lib") then
-						makefolder("./farzad Lib")
+					if not isfolder("./rice Lib") then
+						makefolder("./rice Lib")
 					end
-					local common_string = "./farzad Lib/" .. tostring(custom_workspace or library.WorkspaceName)
+					local common_string = "./rice Lib/" .. tostring(custom_workspace or library.WorkspaceName)
 					local function resolvelist(nofold)
 						if custom_workspace ~= options.Workspace then
 							custom_workspace = options.Workspace
-							common_string = "./farzad Lib/" .. tostring(custom_workspace or library.WorkspaceName)
+							common_string = "./rice Lib/" .. tostring(custom_workspace or library.WorkspaceName)
 						end
 						if not isfolder or not makefolder or not listfiles then
 							return {}
@@ -6201,7 +6201,7 @@ function library:CreateWindow(options, ...)
 		}}, {"AddPersistence", "__Designer.Persistence.ThemeFile", filessection, {
 			Name = "Theme Profile",
 			Flag = "__Designer.Files.ThemeFile",
-			Workspace = "farzad Lib Themes",
+			Workspace = "rice Lib Themes",
 			Flags = flags,
 			Suffix = "Theme",
 			Desginer = true
@@ -6294,7 +6294,7 @@ function library:CreateWindow(options, ...)
 		end
 		if options.Credit ~= false then
 			daaata[1 + #daaata] = {"AddLabel", "__Designer.Label.Creator", detailssection, {
-				Text = "farzad#7777"
+				Text = "rice#1943"
 			}}
 		elseif "Gee, thanks for your support." then
 		end
